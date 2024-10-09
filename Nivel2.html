@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel 2 - Encabezados</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error { color: red; font-weight: bold; }
+    .success { color: rgb(0, 0, 0); font-weight: bold; }
+    #output { margin-top: 20px; padding: 10px; border: 1px solid #ccc; min-height: 50px; }
+    .container { display: flex; }
+    .sidebar { width: 30%; padding: 20px; background-color: #f0f0f0; }
+    .editor-preview { width: 70%; padding: 20px; }
+    .next-level { display: none; margin-top: 20px; font-size: 18px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h2>Paso 2</h2>
+      <p>Escribe encabezados utilizando las etiquetas <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, y <code>&lt;h3&gt;</code>.</p>
+      <p>Ejemplo:</p>
+      <pre>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;h3&gt;Tercer Nivel de Encabezado&lt;/h3&gt;</pre>
+      <p>Utiliza <code>&lt;h1&gt;</code> para el título "Bienvenido", <code>&lt;h2&gt;</code> para "Introduccion", y <code>&lt;h3&gt;</code> para "Detalles".</p>
+    </div>
+
+    <div class="editor-preview">
+      <div class="editor">
+        <textarea id="html-code" placeholder="Escribe tu código HTML aquí..."></textarea>
+        <button onclick="runCode()">Verifica tu Código</button>
+      </div>
+      <div id="output" class="preview"></div>
+      <div id="feedback" class="error"></div>
+      <a id="next-level" class="next-level" href="Nivel3.html">Siguiente Nivel</a>
+    </div>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById('html-code').value;
+      const output = document.getElementById('output');
+      const feedback = document.getElementById('feedback');
+      const nextLevelLink = document.getElementById('next-level');
+
+      feedback.textContent = '';
+      output.innerHTML = code;
+      nextLevelLink.style.display = 'none';
+
+      if (code.includes("<h1>Bienvenido</h1>") && 
+          code.includes("<h2>Introduccion</h2>") && 
+          code.includes("<h3>Detalles</h3>")) {
+        feedback.textContent = "¡Bien hecho! Pasa al siguiente nivel 😎";
+        feedback.className = "success";
+        nextLevelLink.style.display = 'block';
+      } else {
+        feedback.textContent = "Error: Verifica que uses las etiquetas de encabezado correctamente.";
+        feedback.className = "error";
+      }
+    }
+  </script>
+</body>
+</html>

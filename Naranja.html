@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <style>
+        body {
+            background: #1f4037;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            padding: 20px; /* Espaciado alrededor del contenido */
+            text-align: left; /* Alinea todo el texto a la izquierda */
+        }
+
+        /* Estilo para los botones de opción */
+        input[type="radio"] {
+            display: none; /* Oculta el botón de opción original */
+        }
+
+        label {
+            padding: 10px 20px; /* Espaciado alrededor del texto */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar el ratón */
+            margin: 10px 0; /* Margen alrededor de los botones */
+            display: inline-block; /* Hace que el label ocupe solo el ancho necesario */
+            text-align: center; /* Alinea el texto al centro dentro del botón */
+            border: 1px solid transparent; /* Borde transparente por defecto */
+        }
+
+        /* Estilos para el botón "Sí" */
+        input[type="radio"][value="muy_bien"]:checked + label {
+            background-color: green; /* Color de fondo verde */
+            color: white; /* Color del texto */
+        }
+
+        /* Estilos para el botón "No" */
+        input[type="radio"][value="que_mal"]:checked + label {
+            background-color: red; /* Color de fondo rojo */
+            color: white; /* Color del texto */
+        }
+
+        /* Estilo para el cuadro de mensaje */
+        #mensaje {
+            margin-top: 20px; /* Espaciado superior */
+            padding: 10px; /* Espaciado interno */
+            border: 1px solid black; /* Borde negro */
+            border-radius: 5px; /* Bordes redondeados */
+            background-color: white; /* Fondo blanco */
+            color: black; /* Color del texto */
+            width: fit-content; /* Ajusta el ancho al contenido */
+        }
+    </style>
+</head>
+<body>
+    <h1>En esta página aprenderás a utilizar HTML</h1>
+    <h2>Bienvenido a tus primeras de HTML</h2>
+    <h2>En esta página aprenderás a utilizar HTML, el cual no es un lenguaje de programación sino etiquetas e hipertexto</h2>
+    <h2>¿Lo sabías?</h2>
+    <form>
+        <label>
+            <input type="radio" name="respuesta" value="muy_bien" onclick="mostrarMensaje('muy_bien')"> Sí
+        </label>
+        <label>
+            <input type="radio" name="respuesta" value="que_mal" onclick="mostrarMensaje('que_mal')"> No
+        </label>
+    </form>
+
+    <div id="mensaje"></div>
+    <hr style="border: none; height: 6px; background-color: black; width: 100%; margin: 20px auto;"> 
+    <h1>Primera lección</h1>
+    <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-by-building-a-cat-photo-app/step-1" target="_blank">
+        <img src="https://data.textstudio.com/output/sample/animated/5/9/4/7/html-3-17495.gif" alt="1" width="200">
+    </a>
+    <h1>Segunda leccion</h1>
+    <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-by-building-a-cat-photo-app/step-2" target="_blank">
+        <img src="https://data.textstudio.com/output/sample/animated/5/9/4/7/html-43-17495.gif" alt="2" width="200">
+    </a>
+
+    <script>
+        function mostrarMensaje(respuesta) {
+            const mensajeDiv = document.getElementById('mensaje');
+            if (respuesta === 'muy_bien') {
+                mensajeDiv.textContent = '¡Muy bien!';
+            } else if (respuesta === 'que_mal') {
+                mensajeDiv.textContent = '¡Qué mal!';
+            }
+        }
+    </script>
+</body>
+</html>
